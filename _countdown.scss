@@ -1,0 +1,96 @@
+
+$duration: 0.35s;
+$height: 79px;
+$width: 77px;
+
+@function ease-out-quint() {
+	@return cubic-bezier(0.230, 1.300, 0.320, 1.000)
+}
+
+.count {
+	@include perspective($width * 2);
+	@include translateZ(0);
+	height: $height;
+	font: 40px 'gothaprobol-webfont';
+	line-height: $height;
+	float: right;
+	position: relative;
+	text-align: center;
+	width: $width;
+	span {
+		@include transform-origin(0, ($height / 2), 0);
+		color: #f8f8f8;
+		display: block;
+		font-size: inherit;
+		left: 0;
+		position: absolute;
+		top: 0;
+		text-shadow: 0 1px 0 (#000 + 40), 0 2px 0 (#000 + 30), 0 3px 0 (#000 + 20), 0 4px 0 (#000 + 10), 0 5px 0 #000, 0 0 10px rgba(#000, 0.8);
+		width: 100%;
+		&:before {
+			border-bottom: 1px solid #000;
+			content: '';
+			left: 0;
+			position: absolute;
+			width: 100%;
+		}
+		&:after {
+			content: '';
+			height: 100%;
+			left: 0;
+			position: absolute;
+			top: 0;
+			width: 100%;
+		}
+	}
+
+	.top {
+		background: url(../img/clock-top-bg.png) no-repeat;
+		height: 50%;
+		overflow: hidden;
+		&.current {
+			z-index: 4;
+		}
+		&.next {
+			z-index: 3;
+		}
+		&:before {
+			bottom: 0;
+		}
+	}
+
+	.bottom {
+		background: url(../img/clock-bottom-hours-bg.png) no-repeat center bottom;
+		height: 100%;
+		&:before {
+			top: 50%;
+		}
+		&.current {
+			z-index: 1;
+		}
+		&.next {
+			@include transform(rotate3d(1, 0, 0, 90deg));
+			z-index: 2;
+		}
+	}
+
+	&.changing {
+		.top.current {
+			@include transform(rotate3d(1, 0, 0, -90deg));
+			@include transition(transform $duration * 0.75 ease-in, box-shadow $duration * 0.75 ease-in);
+		}
+	}
+
+	&.changing, &.changed {
+		.bottom.next {
+			@include transition(box-shadow $duration / 2 ease-out-quint() $duration, transform $duration ease-out-quint() $duration);
+			@include transform(rotate3d(1, 0, 0, 0));
+		}
+	}
+
+	&.changed {
+		.top.current, .bottom.current {
+			display: none;
+		}
+	}
+}

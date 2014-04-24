@@ -1,0 +1,16 @@
+@import 'normalize';
+@import 'helpers';
+
+$fonts-list: gothaprobol-webfont gothaprolig-webfont gothaproreg-webfont;
+
+@each $font in $fonts-list {
+	@font-face {
+		@include font-face('#{$font}');
+	}
+}
+
+@import 'app';
+@import 'buttons';
+@import 'clock';
+@import 'countdown';
+@import 'animations';

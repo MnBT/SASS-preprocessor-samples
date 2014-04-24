@@ -1,0 +1,50 @@
+/*	Animations 	*/
+
+@-webkit-keyframes turnUp {
+	0% {
+    	-webkit-transform: rotateX(90deg);
+    }
+    100% {
+    	-webkit-transform: rotateX(0deg);
+    }
+}
+@-webkit-keyframes turnDown {
+    0% {
+    	-webkit-transform: rotateX(0deg);
+    }
+    100% {
+    	-webkit-transform: rotateX(-90deg);
+    }
+}
+@-ms-keyframes turnUp {
+    0% {
+    	-ms-transform: rotateX(90deg);
+    }
+    100% {
+    	-ms-transform: rotateX(0deg);
+    }
+}
+@-ms-keyframes turnDown {
+    0% {
+    	-ms-transform: rotateX(0deg);
+    }
+    100% {
+    	-ms-transform: rotateX(-90deg);
+    }
+}
+@keyframes turnUp {
+    0% {
+    	transform: rotateX(90deg);
+    }
+    100% {
+    	transform: rotateX(0deg);
+    }
+}
+@keyframes turnDown {
+    0% {
+    	transform: rotateX(0deg);
+    }
+    100% {
+    	transform: rotateX(-90deg);
+    }
+}

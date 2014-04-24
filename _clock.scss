@@ -1,0 +1,130 @@
+/*	Clock`s styles 	*/
+
+.clock {
+	position: absolute;
+	bottom: -145px;
+	right: 14px;
+	z-index: 22;
+	padding: 0 0 0 50px;
+	background: url(../img/arrow-timer.png) no-repeat 3px 20px;
+}
+.clock-block {
+	background: url(../img/timer.png) no-repeat;
+	overflow: hidden;
+	padding: 23px 19px;
+	position: relative;
+	height: 120px;
+	width: 295px;
+	font: 40px 'gothaprobol-webfont';
+	color: #d8d5cf;
+}
+.seconds.down, .seconds.up {
+	right: -5px;
+}
+.minutes.down, .minutes.up {
+	right: 78px;
+}
+.hours.down, .hours.up {
+	right: 161px;
+}
+.seconds.down span, .minutes.down span, .hours.down span {
+	position: relative;
+	bottom: 22px;
+}
+#front {
+    z-index: 2;
+}
+#back, #front {
+	position: absolute;
+	width: 250px;
+	height: 110px;
+	left: 33px;
+}
+.hours-perspective,
+.minutes-perspective,
+.seconds-perspective {
+	-webkit-perspective: 250px;
+	perspective: 250px;
+	-webkit-perspective-origin: 50px;
+	perspective-origin: 50px;
+	display: inline-block;
+	width: 83px;
+	height: 40px;
+	float: left;
+	position: relative;
+	top: 3px;
+}
+.hours.up, .minutes.up, .seconds.up,
+.hours.down, .minutes.down, .seconds.down {
+	display: inline-block;
+	width: 81px;
+	height: 40px;
+	float: left;
+	margin: 0 2px 0 0;
+	color: #fff;
+	position: relative;
+	overflow: hidden;
+	right: 0;
+}
+.hours.up, .minutes.up, .seconds.up {
+	-webkit-transform-origin: 50% 100%;
+	-moz-transform-origin: 50% 100%;
+	-o-transform-origin: 50% 100%;
+	-ms-transform-origin: 50% 100%;
+	transform-origin: 50% 100%;
+}
+.hours.down, .minutes.down, .seconds.down {
+	-webkit-transform-origin: 50% 0%;
+	-moz-transform-origin: 50% 0%;
+	-o-transform-origin: 50% 0%;
+	-ms-transform-origin: 50% 0%;
+	transform-origin: 50% 0%;
+	z-index: 1;
+}
+.hours.up, .minutes.up, .seconds.up {
+	background: url(../img/clock-top-bg.png) no-repeat;
+	top: 0;
+	line-height: 78px;
+}
+.hours.down, .minutes.down, .seconds.down {
+	vertical-align: top;
+	line-height: 0px;
+	bottom: 1px;
+}
+.hours.down {
+	background: url(../img/clock-bottom-hours-bg.png) no-repeat;
+}
+.minutes.down {
+	background: url(../img/clock-bottom-minutes-bg.png) no-repeat;
+}
+.seconds.down {
+	background: url(../img/clock-bottom-seconds-bg.png) no-repeat;
+}
+
+.up:after {
+	content: '';
+	position: absolute;
+	bottom: 1px;
+	width: 77px;
+	height: 1px;
+	background: rgba(0,0,0,.6);
+	z-index: 8;
+	left: 0;
+}
+
+.clock-block #front .active.down {
+	z-index: 2;
+	-webkit-animation: turnUp .3s linear both;
+	-moz-animation: turnUp .3s linear both;
+	-ms-animation: turnUp .3s linear both;
+	-o-animation: turnUp .3s linear both;
+	animation: turnUp .3s linear both;
+}
+.clock-block #front .active.up {
+	z-index: 2;
+	-webkit-animation: turnDown .3s linear both;
+	-moz-animation: turnDown .3s linear both;
+	-ms-animation: turnDown .3s linear both;
+	-o-animation: turnDown .3s linear both;
+	animation: turnDown .3s linear both;
+}
